@@ -1,0 +1,138 @@
+@startuml Diagrama E-R
+
+entity DetalleVenta {
+    idDetalleVenta: int <<PK>>
+    cantidad: int
+    precioUnitario: decimal
+    subtotal: decimal
+    idVenta: int <<FK>>
+    idProducto: int <<FK>>
+}
+
+entity Producto {
+    idProducto: int <<PK>>
+    descripcion: String
+    costo: decimal
+    precioRevendedora: decimal
+    precioProfesional: decimal
+    precioConsumidorFinal: decimal
+    ingresoHistorico: int
+    salidaHistorico: int
+    stock: int
+    idMarca: int <<FK>>
+}
+
+entity Marca {
+    idMarca: int <<PK>>
+    nombre: String
+}
+
+entity Venta {
+    idVenta: int <<PK>>
+    fecha: Date
+    NumeroFactura: String
+    Total: decimal
+    idUsuario: int <<FK>>
+    idCliente: int <<FK>>
+    idCuentaCorriente: int <<FK>>
+}
+
+entity Usuario {
+    idUsuario: int <<PK>>
+    nombre: String
+    user: String
+    password: String
+}
+
+entity Cliente {
+    dni: int <<PK>>
+    nombre: String
+    direccion: String
+    telefono: String
+    mail: String
+    idCiudad: int <<FK>> 
+}
+
+entity CuentaCorriente {
+    idCuentaCorriente: int <<PK>>
+    totalEntregas: decimal
+    saldo: decimal
+}
+
+entity DetallePago {
+    idDetallePago: int <<PK>>
+    descripcion: String
+    fecha: Date
+    monto: decimal
+    paridad: decimal
+    montoPesos: decimal
+    idCuentaCorriente: int <<FK>>
+}
+
+entity Ciudad {
+    idCiudad: int <<PK>>
+    nombre: String
+}
+
+entity Cuenta {
+    idCuenta: int <<PK>>
+    nombre: String
+    entidad: String
+    cbu: String
+    alias: String
+    idMoneda: int <<FK>>
+}
+
+entity Costos {
+    idCosto: int <<PK>>
+    fecha: Date
+    descripcion: String
+    monto: decimal
+    idCuenta: int <<FK>>
+    idUsuario: int <<FK>>
+}
+
+entity Moneda {
+    idMoneda: int <<PK>>
+    nombre: String
+    simbolo: String
+    paridad: decimal
+}
+
+entity Flujo {
+    idFlujo: int <<PK>>
+    fecha: Date
+    descripcion: String
+    monto: decimal
+    paridad: decimal
+    montoPesos: decimal
+    idCuenta: int <<FK>>
+    idUsuario: int <<FK>>
+}
+
+entity Ingreso {
+    idIngreso: int <<PK>>
+    fecha: Date
+    cantidad: int
+    precioUnitario: decimal
+    total: decimal
+    idProducto: int <<FK>>
+    idUsuario: int <<FK>>
+}
+
+Cliente }|--|| Ciudad
+Cuenta }|--|| Moneda
+DetalleVenta }|--|| Venta
+DetalleVenta }|--|| Producto
+Venta }|--|| Usuario
+Venta }|--|| Cliente
+CuentaCorriente ||--|| Venta
+DetallePago }|--|| CuentaCorriente
+Producto }|--|| Marca
+Ingreso }|--|| Producto
+Ingreso }|--|| Usuario
+Costos }|--|| Cuenta
+Costos }|--|| Usuario
+Flujo }|--|| Cuenta
+Flujo }|--|| Usuario
+@enduml
