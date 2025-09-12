@@ -1,26 +1,47 @@
-import { Injectable } from '@nestjs/common';
-import { CreateDetallePagoDto } from './dto/create-detalle-pago.dto';
-import { UpdateDetallePagoDto } from './dto/update-detalle-pago.dto';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { DetallePago } from '../entities/detalle-pago.entity';
+import { CreateDetallePagoDto } from '../dto/create-detalle-pago.dto';
+import { UpdateDetallePagoDto } from '../dto/update-detalle-pago.dto';
 
 @Injectable()
 export class DetallePagosService {
-  create(createDetallePagoDto: CreateDetallePagoDto) {
-    return 'This action adds a new detallePago';
+  constructor(
+    @InjectRepository(DetallePago)
+    private readonly detallePagoRepository: Repository<DetallePago>,
+  ) {}
+
+  async findAll(): Promise<DetallePago[]> {
+    return this.detallePagoRepository.find({
+      relations: ['cuentaCorriente'],
+    });
   }
 
-  findAll() {
-    return `This action returns all detallePagos`;
+  async findOne(id: number): Promise<DetallePago> {
+    const detalle = await this.detallePagoRepository.findOne({
+      where: { idDetallePago: id },
+      relations: ['cuentaCorriente'],
+    });
+    if (!detalle) {
+      throw new NotFoundException(`DetallePago con id ${id} no encontrado`);
+    }
+    return detalle;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} detallePago`;
+  async create(createDto: CreateDetallePagoDto): Promise<DetallePago> {
+    const detalle = this.detallePagoRepository.create(createDto);
+    return this.detallePagoRepository.save(detalle);
   }
 
-  update(id: number, updateDetallePagoDto: UpdateDetallePagoDto) {
-    return `This action updates a #${id} detallePago`;
+  async update(id: number, updateDto: UpdateDetallePagoDto): Promise<DetallePago> {
+    const detalle = await this.findOne(id);
+    Object.assign(detalle, updateDto);
+    return this.detallePagoRepository.save(detalle);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} detallePago`;
+  async remove(id: number): Promise<void> {
+    const detalle = await this.findOne(id);
+    await this.detallePagoRepository.remove(detalle);
   }
 }

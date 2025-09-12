@@ -1,8 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { AuthGuard } from './middlewares/guards/auth.guard';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(process.env.PORT ?? 3000);
+
+  app.enableCors();
+  app.useGlobalGuards(new AuthGuard());
+  
+  await app.listen(3000);
 }
 bootstrap();

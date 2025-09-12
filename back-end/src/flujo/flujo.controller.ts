@@ -1,16 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
 import { FlujoService } from './flujo.service';
-import { CreateFlujoDto } from './dto/create-flujo.dto';
-import { UpdateFlujoDto } from './dto/update-flujo.dto';
+import { CreateFlujoDto } from '../dto/create-flujo.dto';
+import { UpdateFlujoDto } from '../dto/update-flujo.dto';
+import { AuthGuard } from '../middlewares/guards/auth.guard';
 
 @Controller('flujo')
+@UseGuards(AuthGuard)
 export class FlujoController {
   constructor(private readonly flujoService: FlujoService) {}
-
-  @Post()
-  create(@Body() createFlujoDto: CreateFlujoDto) {
-    return this.flujoService.create(createFlujoDto);
-  }
 
   @Get()
   findAll() {
@@ -22,9 +19,14 @@ export class FlujoController {
     return this.flujoService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFlujoDto: UpdateFlujoDto) {
-    return this.flujoService.update(+id, updateFlujoDto);
+  @Post()
+  create(@Body() dto: CreateFlujoDto) {
+    return this.flujoService.create(dto);
+  }
+
+  @Put(':id')
+  update(@Param('id') id: string, @Body() dto: UpdateFlujoDto) {
+    return this.flujoService.update(+id, dto);
   }
 
   @Delete(':id')

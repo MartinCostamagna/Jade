@@ -1,26 +1,47 @@
-import { Injectable } from '@nestjs/common';
-import { CreateVentaDto } from './dto/create-venta.dto';
-import { UpdateVentaDto } from './dto/update-venta.dto';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Venta } from '../entities/venta.entity';
+import { CreateVentaDto } from '../dto/create-venta.dto';
+import { UpdateVentaDto } from '../dto/update-venta.dto';
 
 @Injectable()
 export class VentaService {
-  create(createVentaDto: CreateVentaDto) {
-    return 'This action adds a new venta';
+  constructor(
+    @InjectRepository(Venta)
+    private readonly ventaRepository: Repository<Venta>,
+  ) {}
+
+  async findAll(): Promise<Venta[]> {
+    return this.ventaRepository.find({
+      relations: ['usuario', 'cliente', 'cuentaCorriente', 'detalleVentas'],
+    });
   }
 
-  findAll() {
-    return `This action returns all venta`;
+  async findOne(id: number): Promise<Venta> {
+    const venta = await this.ventaRepository.findOne({
+      where: { idVenta: id },
+      relations: ['usuario', 'cliente', 'cuentaCorriente', 'detalleVentas'],
+    });
+    if (!venta) {
+      throw new NotFoundException(`Venta con id ${id} no encontrada`);
+    }
+    return venta;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} venta`;
+  async create(createVentaDto: CreateVentaDto): Promise<Venta> {
+    const venta = this.ventaRepository.create(createVentaDto);
+    return this.ventaRepository.save(venta);
   }
 
-  update(id: number, updateVentaDto: UpdateVentaDto) {
-    return `This action updates a #${id} venta`;
+  async update(id: number, updateVentaDto: UpdateVentaDto): Promise<Venta> {
+    const venta = await this.findOne(id);
+    Object.assign(venta, updateVentaDto);
+    return this.ventaRepository.save(venta);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} venta`;
+  async remove(id: number): Promise<void> {
+    const venta = await this.findOne(id);
+    await this.ventaRepository.remove(venta);
   }
 }

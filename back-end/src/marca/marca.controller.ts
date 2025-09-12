@@ -1,16 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
 import { MarcaService } from './marca.service';
-import { CreateMarcaDto } from './dto/create-marca.dto';
-import { UpdateMarcaDto } from './dto/update-marca.dto';
+import { CreateMarcaDto } from '../dto/create-marca.dto';
+import { UpdateMarcaDto } from '../dto/update-marca.dto';
+import { AuthGuard } from '../middlewares/guards/auth.guard';
 
-@Controller('marca')
+@Controller('marcas')
+@UseGuards(AuthGuard)
 export class MarcaController {
   constructor(private readonly marcaService: MarcaService) {}
-
-  @Post()
-  create(@Body() createMarcaDto: CreateMarcaDto) {
-    return this.marcaService.create(createMarcaDto);
-  }
 
   @Get()
   findAll() {
@@ -22,7 +19,12 @@ export class MarcaController {
     return this.marcaService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Post()
+  create(@Body() createMarcaDto: CreateMarcaDto) {
+    return this.marcaService.create(createMarcaDto);
+  }
+
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateMarcaDto: UpdateMarcaDto) {
     return this.marcaService.update(+id, updateMarcaDto);
   }
