@@ -10,7 +10,7 @@ export class Costo {
     @Column({ type: 'date', nullable: false})
     fecha!: Date;
 
-    @Column({ type: 'string', length: 255, nullable: false})
+    @Column({ type: 'varchar', length: 255, nullable: false})
     descripcion!: string;
 
     @Column({ type: 'decimal', precision: 10, scale: 2, nullable: false})

@@ -1,13 +1,18 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { CostoService } from './costo.service';
 import { CreateCostoDto } from '../dto/create-costo.dto';
 import { UpdateCostoDto } from '../dto/update-costo.dto';
-import { AuthGuard } from '../middlewares/guards/auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('costos')
-@UseGuards(AuthGuard)
+@UseGuards(JwtAuthGuard)
 export class CostoController {
   constructor(private readonly costoService: CostoService) {}
+
+  @Post()
+  create(@Body() createCostoDto: CreateCostoDto) {
+    return this.costoService.create(createCostoDto);
+  }
 
   @Get()
   findAll() {
@@ -19,14 +24,9 @@ export class CostoController {
     return this.costoService.findOne(+id);
   }
 
-  @Post()
-  create(@Body() dto: CreateCostoDto) {
-    return this.costoService.create(dto);
-  }
-
-  @Put(':id')
-  update(@Param('id') id: string, @Body() dto: UpdateCostoDto) {
-    return this.costoService.update(+id, dto);
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateCostoDto: UpdateCostoDto) {
+    return this.costoService.update(+id, updateCostoDto);
   }
 
   @Delete(':id')

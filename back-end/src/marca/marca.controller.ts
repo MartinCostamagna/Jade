@@ -1,13 +1,18 @@
-import {Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { MarcaService } from './marca.service';
 import { CreateMarcaDto } from '../dto/create-marca.dto';
 import { UpdateMarcaDto } from '../dto/update-marca.dto';
-import { AuthGuard } from '../middlewares/guards/auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('marcas')
-@UseGuards(AuthGuard)
+@UseGuards(JwtAuthGuard)
 export class MarcaController {
   constructor(private readonly marcaService: MarcaService) {}
+
+  @Post()
+  create(@Body() createMarcaDto: CreateMarcaDto) {
+    return this.marcaService.create(createMarcaDto);
+  }
 
   @Get()
   findAll() {
@@ -19,12 +24,7 @@ export class MarcaController {
     return this.marcaService.findOne(+id);
   }
 
-  @Post()
-  create(@Body() createMarcaDto: CreateMarcaDto) {
-    return this.marcaService.create(createMarcaDto);
-  }
-
-  @Put(':id')
+  @Patch(':id')
   update(@Param('id') id: string, @Body() updateMarcaDto: UpdateMarcaDto) {
     return this.marcaService.update(+id, updateMarcaDto);
   }

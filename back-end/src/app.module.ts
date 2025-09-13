@@ -13,6 +13,7 @@ import { CostoModule } from './costo/costo.module';
 import { FlujoModule } from './flujo/flujo.module';
 import { IngresoModule } from './ingreso/ingreso.module';
 import { UsuarioModule } from './usuario/usuario.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { UsuarioModule } from './usuario/usuario.module';
         synchronize: true,
       }),
     }),
+    AuthModule,
     MarcaModule,
     ProductoModule,
     CiudadModule,

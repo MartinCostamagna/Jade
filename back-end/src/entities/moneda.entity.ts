@@ -6,10 +6,10 @@ export class Moneda {
     @PrimaryGeneratedColumn()
     idMoneda!: number;
 
-    @Column({ type: 'string', length: 50, nullable: false, unique: true})
+    @Column({ type: 'varchar', length: 50, nullable: false, unique: true})
     nombre!: string;
 
-    @Column({ type: 'string', length: 5, nullable: false})
+    @Column({ type: 'varchar', length: 5, nullable: false})
     simbolo!: string;
 
     @Column({ type: 'decimal', precision: 10, scale: 2, nullable: false})

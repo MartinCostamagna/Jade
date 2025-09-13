@@ -1,13 +1,18 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { ProductoService } from './producto.service';
 import { CreateProductoDto } from '../dto/create-producto.dto';
 import { UpdateProductoDto } from '../dto/update-producto.dto';
-import { AuthGuard } from '../middlewares/guards/auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('productos')
-@UseGuards(AuthGuard)
+@UseGuards(JwtAuthGuard)
 export class ProductoController {
   constructor(private readonly productoService: ProductoService) {}
+
+  @Post()
+  create(@Body() createProductoDto: CreateProductoDto) {
+    return this.productoService.create(createProductoDto);
+  }
 
   @Get()
   findAll() {
@@ -19,12 +24,7 @@ export class ProductoController {
     return this.productoService.findOne(+id);
   }
 
-  @Post()
-  create(@Body() createProductoDto: CreateProductoDto) {
-    return this.productoService.create(createProductoDto);
-  }
-
-  @Put(':id')
+  @Patch(':id')
   update(@Param('id') id: string, @Body() updateProductoDto: UpdateProductoDto) {
     return this.productoService.update(+id, updateProductoDto);
   }

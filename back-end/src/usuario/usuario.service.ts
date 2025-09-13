@@ -31,12 +31,16 @@ export class UsuarioService {
 
   async update(id: number, updateUsuarioDto: UpdateUsuarioDto): Promise<Usuario> {
     const usuario = await this.findOne(id);
-    Object.assign(usuario, updateUsuarioDto);
-    return this.usuarioRepository.save(usuario);
+    const updated = Object.assign(usuario, updateUsuarioDto);
+    return this.usuarioRepository.save(updated);
   }
 
   async remove(id: number): Promise<void> {
     const usuario = await this.findOne(id);
     await this.usuarioRepository.remove(usuario);
+  }
+
+  async findByUsername(username: string): Promise<Usuario | null> {
+    return this.usuarioRepository.findOne({ where: { userName: username } });
   }
 }

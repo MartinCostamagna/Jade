@@ -1,13 +1,18 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { CiudadService } from './ciudad.service';
 import { CreateCiudadDto } from '../dto/create-ciudad.dto';
 import { UpdateCiudadDto } from '../dto/update-ciudad.dto';
-import { AuthGuard } from '../middlewares/guards/auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('ciudades')
-@UseGuards(AuthGuard)
+@UseGuards(JwtAuthGuard)
 export class CiudadController {
   constructor(private readonly ciudadService: CiudadService) {}
+
+  @Post()
+  create(@Body() createCiudadDto: CreateCiudadDto) {
+    return this.ciudadService.create(createCiudadDto);
+  }
 
   @Get()
   findAll() {
@@ -19,12 +24,7 @@ export class CiudadController {
     return this.ciudadService.findOne(+id);
   }
 
-  @Post()
-  create(@Body() createCiudadDto: CreateCiudadDto) {
-    return this.ciudadService.create(createCiudadDto);
-  }
-
-  @Put(':id')
+  @Patch(':id')
   update(@Param('id') id: string, @Body() updateCiudadDto: UpdateCiudadDto) {
     return this.ciudadService.update(+id, updateCiudadDto);
   }

@@ -1,13 +1,18 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { IngresoService } from './ingreso.service';
 import { CreateIngresoDto } from '../dto/create-ingreso.dto';
 import { UpdateIngresoDto } from '../dto/update-ingreso.dto';
-import { AuthGuard } from '../middlewares/guards/auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('ingresos')
-@UseGuards(AuthGuard)
+@UseGuards(JwtAuthGuard)
 export class IngresoController {
   constructor(private readonly ingresoService: IngresoService) {}
+
+  @Post()
+  create(@Body() createIngresoDto: CreateIngresoDto) {
+    return this.ingresoService.create(createIngresoDto);
+  }
 
   @Get()
   findAll() {
@@ -19,14 +24,9 @@ export class IngresoController {
     return this.ingresoService.findOne(+id);
   }
 
-  @Post()
-  create(@Body() dto: CreateIngresoDto) {
-    return this.ingresoService.create(dto);
-  }
-
-  @Put(':id')
-  update(@Param('id') id: string, @Body() dto: UpdateIngresoDto) {
-    return this.ingresoService.update(+id, dto);
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateIngresoDto: UpdateIngresoDto) {
+    return this.ingresoService.update(+id, updateIngresoDto);
   }
 
   @Delete(':id')

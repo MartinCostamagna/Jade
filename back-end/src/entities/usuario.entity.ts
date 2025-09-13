@@ -10,13 +10,10 @@ export class Usuario {
     @PrimaryGeneratedColumn()
     idUsuario!: number;
 
-    @Column({ type: 'varchar', length: 100, nullable: false })
-    nombre!: string;
-
     @Column({ type: 'varchar', length: 50, nullable: false, unique: true })
-    user!: string;
+    userName!: string;
 
-    @Column({ type: 'varchar', length: 30, nullable: false })
+    @Column({ type: 'varchar', length: 100, nullable: false })
     password!: string;
 
     @OneToMany(() => Ingreso, ingreso => ingreso.usuario)

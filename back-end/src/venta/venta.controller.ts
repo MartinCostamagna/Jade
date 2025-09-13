@@ -1,13 +1,18 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { VentaService } from './venta.service';
 import { CreateVentaDto } from '../dto/create-venta.dto';
 import { UpdateVentaDto } from '../dto/update-venta.dto';
-import { AuthGuard } from '../middlewares/guards/auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('ventas')
-@UseGuards(AuthGuard)
+@UseGuards(JwtAuthGuard)
 export class VentaController {
   constructor(private readonly ventaService: VentaService) {}
+
+  @Post()
+  create(@Body() createVentaDto: CreateVentaDto) {
+    return this.ventaService.create(createVentaDto);
+  }
 
   @Get()
   findAll() {
@@ -19,14 +24,9 @@ export class VentaController {
     return this.ventaService.findOne(+id);
   }
 
-  @Post()
-  create(@Body() dto: CreateVentaDto) {
-    return this.ventaService.create(dto);
-  }
-
-  @Put(':id')
-  update(@Param('id') id: string, @Body() dto: UpdateVentaDto) {
-    return this.ventaService.update(+id, dto);
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateVentaDto: UpdateVentaDto) {
+    return this.ventaService.update(+id, updateVentaDto);
   }
 
   @Delete(':id')
