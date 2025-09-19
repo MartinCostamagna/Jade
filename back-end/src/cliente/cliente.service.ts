@@ -19,7 +19,7 @@ export class ClienteService {
 
   async findAll(): Promise<Cliente[]> {
     return this.clienteRepository.find({
-      relations: ['ciudad'], // 👈 si en tu entity está @ManyToOne con Ciudad
+      relations: ['ciudad'],
     });
   }
 

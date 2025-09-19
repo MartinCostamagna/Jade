@@ -1,4 +1,3 @@
-
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Cliente } from './cliente.entity';
 
