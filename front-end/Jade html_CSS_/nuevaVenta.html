@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JADE Centro de Formación Estética - Nueva Venta</title>
+<link rel="stylesheet" href="css/style_venta.css">
+
+<body>
+    <!--el siguiente div crea el formulario-->
+    <div>
+        <div class="fecha_num_fact">
+            <div>
+                <label for="fechaVenta" class="etiqueta">Fecha:</label>
+                <input type="date" id="fechaVenta" name="fechaVenta" class="input">
+            </div>
+            <div>
+                <label for="numfact" class="etiqueta">N° Factura:</label>
+                <input type="text" id="numfact" name="numFact" class="input">
+            </div>
+        </div>
+        <div class="dato_cliente">
+            <label for="clientes" class="etiqueta cliente">Cliente:</label>
+            <input list="clientes" class="select_cliente" id="cliente" name="cliente" placeholder="-- Seleccione un cliente--">
+            <datalist id="clientes">
+                
+            </datalist>
+            <!--<select name="cliente" id="cliente" class="select_cliente"><option value="">-- Seleccione un cliente --</option></select>-->
+            <input type="text" class="texto direccion" id="direccion">
+            <input type="text" class="texto ciudad" id="ciudad" >
+            <input type="text" class="texto telefono" id="telefono">
+            <input type="text" class="texto dni" id="dni">
+            <div class="botones_venta">
+                <input type="submit" value="Nuevo" id="btnNuevoCliente" class="btn_venta">
+                <input type="submit" value="Actualizar" id="btnActualizar" class="btn_venta">
+            </div>
+        </div>
+        <div class="condicion_venta">
+            <div class="condicion_pago">
+                <div>
+                    <label for="condicion_pago" class="etiqueta">Forma de pago:</label>
+                    <select id="codicion_pago" name="condicion_pago">
+                    <option value="">-- Seleccione forma de pago --</option>
+                    <option value="1">Contado</option>
+                    <option value="2">Credito</option>
+                    <option value="3">Cuenta Corriente</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="cuenta" class="etiqueta">Cuenta:</label>
+                    <select name="cuenta" id="cuenta">
+                        <option value="">-- Seleccione una cuenta --</option>
+                        <option value="">CAJA</option>
+                        <option value="">Bru Bank</option>
+                    </select>
+                </div>
+            </div>
+            <div class="condicion_cliente">
+                <label for="condicion_cliente" class="etiqueta">Condicion cliente:</label>
+                <select id="condicion_cliente" name="condicion_cliente">
+                <option value="">-- Seleccione tipo de cliente --</option>
+                <option value="1">Consumidor Final</option>
+                <option value="2">revendedor</option>
+                <option value="3">Profesional</option>
+                </select>
+            </div>
+            <div class="descuento">
+                <label for="descuento" class="etiqueta">Descuento %</label>
+                <input type="number" class="texto_descuento" min=0 step="0.01" id="descuento" name="descuento">
+            </div>
+        </div>
+
+
+
+        <div class="venta">
+            <div class="detalle_venta">
+                <div class="articulo">
+                    <label for="articulos" class="etiqueta_venta">Articulo</label>
+                    <input list="articulos" class="select_venta" id="articulo" name="articulo" placeholder="-- Seleccione un articulo--">
+                    <datalist id="articulos">
+                        <option value="Shampoo">
+                        <option value="Acondicionador">
+                        <option value="Aceite Esencial">
+                        <option value="Crema Hidratante">
+                    </datalist>
+                    <!--<select name="articulo" id="articulo" class="select_venta"><option value="">-- Seleccione un articulo --</option></select>-->
+                </div>
+                
+                    <div class="venta">
+                        <label for="cantidad" class="etiqueta_venta">Cantidad</label>
+                        <input type="number" class="input_venta" min=0 step="0.01" id="cantidad" name="cantidad">
+                    </div>
+                    <div class="venta">
+                        <label for="precio" class="etiqueta_venta">Precio</label>
+                        <input type="number" class="input_venta" min=0 step="0.01" id="precio" name="precio">
+                    </div>
+                    <div class="venta">
+                        <label for="total" class="etiqueta_venta">Total</label>
+                        <input type="number" class="input_venta" min=0 step="0.01" id="total" name="total">
+                    </div> 
+                
+                <div class="botones_venta">
+                    <input type="submit" value="Cargar" id="btnCargar" class="btn_venta">
+                    <input type="submit" value="Eliminar" id="btnEliminar" class="btn_venta">
+                </div>
+            </div>
+            <div class="tabla_venta">
+                <table class="ancho-venta">
+                    <thead>
+                        <tr>
+                        <th>Cantidad</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>   
+        </div>   
+        <div class="totales_venta">
+            <div class="cantidad_articulos">
+                <label for="cantidad_articulos" class="etiqueta_venta">Cant. Articulos</label>
+                <input type="number" name="cantidad_articulos" id="cantidad_articulos" class="input_tv">
+            </div>
+            <div class="entrega_inicial">
+                <label for="entrega_inicial" class="etiqueta_venta">Entrega Inicial</label>
+                <input type="number" name="entrega_inicial" id="entrega_inicial" class="input_tv">
+            </div>
+            <div class="btns_venta">
+                <input type="submit" value="RECAL" id="btnRecal" class="btn_venta">
+                <input type="submit" value="CONFIRMAR" id="btnConfirmar" class="btn_venta">
+                <input type="submit" value="SALIR" id="btnSalir" class="btn_venta">
+            </div>    
+            <div class="suma">
+                <div>
+                    <label for="subTotal" class="etiqueta_venta total">Sub Total</label>
+                    <input type="number" name="subTotal" id="subTotal">
+                </div>
+                <div>
+                    <label for="descuento" class="etiqueta_venta total">Descuento</label>
+                    <input type="number" name="descuento" id="descuento">
+                </div>
+                <div>
+                    <label for="totalV" class="etiqueta_venta total">Total</label>
+                    <input type="number" name="totalV" id="totalV">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const hoy = new Date();
+        const fechaFormateada = hoy.toISOString().split('T')[0];
+        document.getElementById("fechaVenta").value = fechaFormateada;
+    });
+    </script>
+    
+</body>

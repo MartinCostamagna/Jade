@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JADE Centro de Formación Estética - Flujo</title>
+    <link rel="stylesheet" href="css/style_flujo.css">
+</head>
+<body>
+    <div class="flujo">
+        <div class="insertar">
+            <div>
+            <label for="fecha" class="etiqueta">Fecha</label>
+            <input type="date" id="fecha" name="fecha" class="input">
+            </div>
+            <div>
+            <label for="descripcion" class="etiqueta">Descripcion</label>
+            <input type="text" id="descripcion" name="descripcion" class="input">
+            </div>
+            <div>
+            <label for="monto" class="etiqueta">Monto</label>
+            <input type="number" id="monto" name="monto" class="input">
+            </div>
+            <div>
+            <label for="cuenta" class="etiqueta">Cuenta</label>
+            <select class="inputSelec" name="cuenta" id="cuenta">
+                <option value="" selected disabled>--Seleccione un Cuenta--</option>
+                <option value="">CAJA</option>
+                <option value="">NACON1</option>
+            </select>
+            </div>
+            <div>
+            <label for="moneda" class="etiqueta">Moneda</label>
+            <input type="text" id="moneda" name="moneda" class="input">
+            </div>
+            <div>
+            <label for="tipo" class="etiqueta">Tipo</label>
+            <select class="inputSelec" id="tipo" name="tipo">
+                <option value="" selected disabled>--Seleccione tipo--</option>
+                <option >ENTRADA</option>
+                <option >SALIDA</option>
+            </select>
+            </div>
+            <div>
+                <label for="" class="input multilinea">svvf sfs</label>
+            </div>
+            <div>
+            <input type="submit" class="btn-flujo" value="Cargar">
+            <input type="submit" class="btn-flujo" value="Eliminar">
+            <input type="submit" class="btn-flujo" value="Descargar">
+            </div>
+        </div>
+        <div class="mostrar">
+            <div>
+                <select class="inputSelec mostrarC" name="cuenta" id="cuenta1" placeholder="-- Seleccione una cuenta--">
+                    <option value="">CAJA</option>
+                    <option value="">NACON1</option>
+                </select>
+                <input type="text" class="mostrar-cunta" id="mostrar-cuenta1">
+            </div>
+            <div>
+                <select class="inputSelec mostrarC" name="cuenta" id="cuenta2" placeholder="-- Seleccione una cuenta--">
+                    <option value="">CAJA</option>
+                    <option value="">NACON1</option>
+                </select>
+                <input type="text" class="mostrar-cunta" id="mostrar-cuenta2">
+            </div>
+            <div>
+                <select class="inputSelec mostrarC" name="cuenta" id="cuenta3">
+                    
+                    <option value="">CAJA</option>
+                    <option value="">NACON1</option>
+                </select>
+                <input type="text" class="mostrar-cunta" id="mostrar-cuenta3">
+            </div>
+            <div>
+                <select class="inputSelec mostrarC" name="cuenta" id="cuenta4" placeholder="-- Seleccione una cuenta--">
+                    <option value="">CAJA</option>
+                    <option value="">NACON1</option>
+                </select>
+                <input type="text" class="mostrar-cunta" id="mostrar-cuenta4">
+            </div>
+            
+        </div>
+        <div class="mostrar_tabla">
+            <table class="tabla ancho-flujo">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>FECHA</th>
+                        <th>DESCRIPCION</th>
+                        <th>MONEDA</th>
+                        <th>MONTO</th>
+                        <th>CUENTA</th>
+                        <th>USUARIO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

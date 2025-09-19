@@ -1,0 +1,211 @@
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: auto;
+      background: #f5f5f5;
+    }
+
+    p {
+      font-size: 12px;
+    }
+    
+
+    /* Sidebar */
+    .sidebar {
+      width: 200px;
+      background-color: #007660; /* Verde jade oscuro */
+      color: #bffff3;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+      height: 100hv;
+    }
+
+    .sidebar img {
+      width: 150px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    .menu li {
+      padding: 15px 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .menu li:hover {
+      background-color: #00a889;
+    }
+
+    .submenu {
+      list-style: none;
+      padding-left: 20px;
+      display: none;
+      flex-grow: 2;
+    }
+
+    .menu li:hover .submenu {
+      display: block;
+    }
+
+    .submenu li {
+      padding: 10px 20px;
+    /*  background-color: #00796b;*/
+      cursor: pointer;
+      transition: background 0.3s;
+      border-radius: 8px;
+    }
+
+    .submenu li:hover {
+      background-color: #80ffe8;
+      color: #007660;
+    }
+    .submenu li:hover .submenu1 {
+      display: block;
+    }
+    .submenu1 {
+      list-style: none;
+      padding-left: 30px;
+      display: none;
+      flex-grow: 3;
+    }
+    .submenu1 li {
+      padding: 10px 20px;
+      background-color: #80ffe8;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .submenu1 li:hover {
+      background-color: #bffff3;
+      color: #004d40;
+    }
+    /* Contenido principal */
+    .main {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    .header {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #004d40;
+    }
+
+    .contenido {
+      background: #f5f5f5;;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 2px 5px 5px rgba(0,0,0,0.1);
+    }
+
+    .footer {
+      height: 700 px;
+      width: 300 px;
+      background-color: #007660;
+      border: #afc5a9 solid 5px;
+    }
+
+    .tabla{
+      flex: 2;
+      color: #010211;
+      border-collapse: collapse;
+      text-align: center;
+      border: #010211 solid 2px;
+    }
+
+      /*formato para el ancho de columnas*/
+    .tabla.ancho-clientes th:nth-child(1) { width: 2%; }
+    .tabla.ancho-clientes th:nth-child(2) { width: 30%; }
+    .tabla.ancho-clientes th:nth-child(4) { width: 26%; }
+    .tabla.ancho-clientes th:nth-child(5) { width: 10%; }
+    .tabla.ancho-clientes th:nth-child(6) { width: 10%; }
+    .tabla.ancho-clientes th:nth-child(7) { width: 10%; }
+    .tabla.ancho-clientes th:nth-child(8) { width: 10%; }
+      
+    .tabla.ancho-productos th:nth-child(1) { width: 2%; }
+    .tabla.ancho-productos th:nth-child(2) { width: 15%; }
+    .tabla.ancho-productos th:nth-child(3) { width: 15%; }
+    .tabla.ancho-productos th:nth-child(4) { width: 26%; }
+    .tabla.ancho-productos th:nth-child(5) { width: 10%; }
+    .tabla.ancho-productos th:nth-child(6) { width: 10%; }
+
+
+
+    .tabla thead {
+      
+      color: #bffff3;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    th, td {
+      border: 1px solid #333; /* línea negra en todas las celdas */
+      padding: 4px; /* espacio interno */
+      font-size: 10px;
+      height: 20px;
+    }
+
+    th {
+      background-color: #007660; 
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .contenedor-formulario{
+      display: flex;
+      gap: 20px;
+    }
+
+    .form{
+      flex: 1;
+      background-color: whitesmoke;
+      border: #004d40 solid 1px;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .btn-form {
+      background-color: #007660;
+      color: #bffff3;
+      margin: 10px;  
+      transition: background-color 0.3s ease;
+      
+    }
+
+    .btn-form:hover{
+      background: linear-gradient(145deg, #009978, #007660);
+    }
+
+    .form-etiqueta{
+      display: block;
+      width: auto;
+      padding: 3px;
+      text-align: left;
+      font-weight: bold;
+      font-size: 12px;
+      color: #004d40;
+    }
+
+    .form-imput{
+      display: block;
+      width: 300px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    

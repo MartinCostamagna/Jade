@@ -1,0 +1,72 @@
+.tabla thead {
+      
+      color: #bffff3;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    th, td {
+      border: 1px solid #333; /* línea negra en todas las celdas */
+      padding: 4px; /* espacio interno */
+      font-size: 10px;
+      height: 20px;
+    }
+
+    th {
+      background-color: #0a6847; /* gris claro para encabezados */
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .contenedor-formulario{
+      display: flex;
+      gap: 20px;
+      max-width: 7  00px;
+    }
+
+    .contenedor-tabla{
+      flex:2;
+      justify-content: end;
+    }
+    .form{
+      flex: 1;
+      background-color: whitesmoke;
+      border: #004d40 solid 1px;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .tabla{
+
+    }
+    .btn-form {
+      background-color: #007660;
+      color: #bffff3;
+      margin: 10px;  
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-form:hover{
+      background: linear-gradient(145deg, #009978, #007660);
+    }
+
+    .confirmar{
+      align-self: end;
+      direction: rtl;
+    }
+    .form-etiqueta{
+      display: block;
+      width: auto;
+      padding: 3px;
+      text-align: left;
+      font-weight: bold;
+      font-size: 12px;
+      color: #004d40;
+    }
+
+    .form-imput{
+      display: block;
+      width: 300px;
+      border-radius: 5px;
+      font-size: 12px;
+    }

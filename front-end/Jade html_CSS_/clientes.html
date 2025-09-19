@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JADE Centro de Formacion Estetica</title>
+<link rel="stylesheet" href="css/style.css">
+
+<body>
+  <div class="contenedor-formulario">
+    <form action="" class="form">
+      <h2>Nuevo Cliente</h2>
+      <p>Todos los datos deben estar completos para poder cargar un nuevo cliente.</p>
+      <div>
+        <div>
+          <label for="nombre" class="form-etiqueta">Nombre</label>
+          <input type="text" required name="nombre" id="nombre" class="form-imput">
+        </div>
+        <div>
+          <label for="direccion" class="form-etiqueta">Direccion</label>
+          <input type="text" required name="direccion" id="direccion" class="form-imput">
+        </div>
+        <div>
+          <label for="ciudad" class="form-etiqueta">Ciudad</label>
+          <input type="text" required name="ciudad" id="ciudad" class="form-imput">
+        </div>
+        <div>
+          <label for="telefono" class="form-etiqueta">Telefono</label>
+          <input type="text" required name="telefono" id="telefono" class="form-imput">
+        </div>
+        <div>
+          <label for="dni" class="form-etiqueta">DNI</label>
+          <input type="number" required name="dni" id="dni" class="form-imput" step="1" min="0" minlength="7">
+        </div>
+        <div>
+          <label for="mail" class="form-etiqueta">Mail</label>
+          <input type="mail" required name="mail" id="mail" class="form-imput">
+        </div>
+        <div>
+          <input type="submit" value="Agregar" class="btn-form">
+        </div>
+      </div>  
+    </form>
+  
+    <table class="tabla ancho-clientes">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Ciudad</th>
+          <th>Telefono</th>
+          <th>DNI</th>
+          <th>Mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>  
+</body>

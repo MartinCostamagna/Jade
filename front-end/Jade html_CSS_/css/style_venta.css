@@ -1,0 +1,302 @@
+
+  /*haceque no se miuestren las flechitas en los input type number*/
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  }
+
+  input[type=number] {
+  -moz-appearance: textfield;
+  }
+  
+  select{
+    font-size: 12px;
+  }
+
+  input[type="submit"]:focus {
+  outline: 2px solid #004d40; 
+  outline-offset: 2px;
+  }
+
+  .fecha_num_fact{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .etiqueta{
+    width: auto;
+    text-align: left;
+    font-weight: bold;
+    font-size: 12px;
+    color: #004d40;
+    margin-left: 5px;
+  }
+  .input{
+    border: none;
+    width: 110px;
+    padding: 3px;
+    font-size: 12px;
+  }
+
+  .texto{
+    border: none;
+    border-bottom: #004d40 solid 1px;
+    font-size: 12px;
+  }
+  .dato_cliente{
+    display: flex;
+    align-items: center;
+    border: #004d40 solid 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .cliente{
+    width: 50px;
+    margin-right: 0px;
+    
+  }
+
+  .select_cliente{
+    flex: 6;
+    width: 300px;
+    margin: 10px;
+    margin-left: 0px;
+    font-size: 12px;
+  }
+
+
+  .direccion{
+    flex: 4;
+    
+  }
+
+  .ciudad{
+    flex: 4;
+    
+  }
+  
+  .telefono{
+    flex: 2;
+    
+  }
+
+  .dni{
+    flex: 2;
+  }
+
+  .botones_venta{
+    flex: 2;
+  }
+  .texto_descuento{
+    border: none;
+    border-bottom: #004d40 solid 3px;
+    width: 50px;
+    font-size: 12px;
+    margin: 3px;
+  }
+
+  .btn-cliente{
+    background-color: #007660;
+    font-size: 12px;
+    color: #bffff3;
+    margin: 10px;
+    width: 70px;
+    transition: background-color 0.3s ease;
+    }
+
+    .btn-cliente:hover{
+      background: linear-gradient(145deg, #009978, #007660);
+    }
+  
+  
+  .condicion_venta{
+    display: flex;
+    flex-wrap: wrap;
+    border: #004d40 solid 1px;
+    margin-bottom: 5px;
+    
+  }
+
+  .condicion_pago{
+    display: flex;
+    flex:10;
+    border: #004d40 solid 1px;
+    margin: 5px;
+  }
+
+  .condicion_cliente{
+    flex: 6;
+    border: #004d40 solid 1px;
+    margin: 5px;
+  }
+
+  .descuento{
+    flex: 3;
+    border: #004d40 solid 1px;
+    margin: 5px;
+    align-items: center;
+  }
+  
+  .detalle_venta{
+    display: flex;
+    flex-wrap: wrap;
+    border: #004d40 solid 1px;
+  }
+
+  .etiqueta_venta{
+    display: block;
+    width: auto;
+    text-align: left;
+    font-weight: bold;
+    font-size: 12px;
+    color: #004d40;
+    margin-left: 10px;
+  }
+
+  .input_venta{
+    border: none;
+    border-bottom: #004d40 solid 3px;
+    width: 50px;
+    font-size: 12px;
+    margin-left: 20px;
+  }
+
+  .select_venta{
+    font-size: 12px;
+    width: 500px;
+    margin: 10px;
+    flex-shrink: 2;
+  }
+
+  .venta1{
+    display: flex;
+  }
+  .botones_venta{
+    display: flex;
+    width: 100px;
+    margin-left: auto;
+    margin: auto;
+    justify-content: end;
+    padding: 5px;
+  }
+
+  .btn_venta{
+    background-color: #007660;
+    font-size: 12px;
+    color: #bffff3;
+    margin: 3px;
+    width: 70px;
+    height: 25px;transition: background-color 0.3s ease;
+    }
+
+    .btn_venta:hover{
+      background: linear-gradient(145deg, #009978, #007660);
+    }
+  
+
+  .tabla_venta{
+    border: #004d40 solid 1px;
+    padding: 5px;
+    margin-top: 5px;
+  }
+
+  .tabla_venta th{
+    font-size: 15px;
+    color: #bffff3;
+  }
+
+  .ancho-venta th:nth-child(1) { width: 10%; }
+  .ancho-venta th:nth-child(2) { width: 70%; }
+  .ancho-venta th:nth-child(3) { width: 10%; }
+  .ancho-venta th:nth-child(4) { width: 10%; }
+  
+  .ancho-venta{
+    width: 100%;
+    color: #010211;
+    border-collapse: collapse;
+    text-align: center;
+    border: #010211 solid 2px;
+    border-radius: 20px;
+    margin-top: 5px;
+  }
+
+  .tabla thead {    color: #bffff3;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  th, td {
+    border: 1px solid #333; /* línea negra en todas las celdas */
+    padding: 4px; /* espacio interno */
+    font-size: 10px;
+    height: 20px;
+  }
+
+  .totales_venta{
+    display: flex;
+    border: #004d40 solid 1px;
+    gap: 5px;
+    padding: 5px;
+    flex-wrap: wrap;
+  }
+
+  .btn_conf{
+    height: 12px;
+  }
+
+  .suma{
+    flex:1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+  
+  .cantidad_articulos{
+    flex: 1;
+  }
+
+  .entrega_inicial{
+    flex: 1;
+  }
+
+  .btns_venta{
+    flex: 1;
+  }
+  .total{
+    display: inline;
+  }
+
+  .input_tv{
+    height:   25px;
+    font-size: 12px bold;
+  }
+
+  #totalV{
+    width: 120px;
+    font-weight: bold;
+    text-align: end;
+    background-color: mediumspringgreen;
+    
+  }
+
+  #subTotal, #descuento{
+    width: 120px;
+    text-align: end;
+  }
+  #cantidad_articulos{
+    width: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: start;
+  }
+
+  #entrega_inicial{
+    width: 120px;
+    font-size:14px;
+    font-weight: bold;
+    text-align: end;
+  }

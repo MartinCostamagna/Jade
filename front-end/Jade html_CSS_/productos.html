@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JADE Natural Spa</title>
+<link rel="stylesheet" href="css/style.css">
+
+<body>
+    <!--el siguiente div crea el formulario-->
+  <div class="contenedor-formulario">
+    <form action="" class="form">
+      <h2>Productos</h2>
+      <p>Complete todos los datos para poder cargar un nuevo producto. Si desea editar uno existente primero sececione el producto en la tabla y luego modifique el valor que deba ser actualizado.</p>
+      <div>
+        <div>
+          <label for="articulo" class="form-etiqueta">Articulo</label>
+          <input type="text" required name="articulo" id="articulo" class="form-imput">
+        </div>
+        <div>
+          <label for="marca" class="form-etiqueta">Marca</label>
+          <input type="text" required name="marca" id="marca" class="form-imput">
+        </div>
+        <div>
+          <label for="costo" class="form-etiqueta">Costo</label>
+          <input type="number" required name="costo" id="costo" class="form-imput" step="0.01" min="0">
+        </div>
+        <div>
+          <label for="preciorv" class="form-etiqueta">P. revendedora</label>
+          <input type="number" required name="preciorv" id="preciorv" class="form-imput" step="0.01" min="0">
+        </div>
+        <div>
+          <label for="preciopro" class="form-etiqueta">P. profesional</label>
+          <input type="number" required name="preciopro" id="preciopro" class="form-imput" step="0.01" min="0">
+        </div>
+        <div>
+          <label for="preciocf" class="form-etiqueta">P. Cosumidor Final</label>
+          <input type="number" required name="preciocf" id="preciocf" class="form-imput" step="0.01" min="0">
+        </div>
+        <div>
+          <input type="submit" value="Agregar" class="btn-form">
+        </div>
+      </div>  
+    </form>
+    <table class="tabla ancho-productos">
+      <thead>
+        <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Precio Revendedora</th>
+        <th>Precio Profesional</th>
+        <th>Precio Final</th>
+        <th>Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>

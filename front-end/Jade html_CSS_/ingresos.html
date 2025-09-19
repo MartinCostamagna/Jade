@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style_ingresos.css">
+
+    <title>JADE Centro de Formación Estética - Ingresos</title>
+</head>
+<body>
+    <div class="contenedor-formulario">
+    <form action="" class="form">
+      <h2>Nuevo Ingreso de mercadería</h2>
+      <p>Todos los datos deben estar completos para poder guardar.</p>
+      <div>
+          <label for="fechaVenta" class="form-etiqueta">Fecha:</label>
+          <input type="date" id="fechaVenta" name="fechaVenta" class="input">
+      </div>
+      <div>
+        <div>
+          <label for="articulo" class="form-etiqueta">Articulo</label>
+          <input type="text" required name="articulo" id="articulo" class="form-imput">
+        </div>
+        <div>
+          <label for="cantidad" class="form-etiqueta">Cantidad</label>
+          <input type="number" required name="cantidad" id="cantidad" class="form-imput">
+        </div>
+        <div>
+          <label for="precio" class="form-etiqueta">Precio</label>
+          <input type="text" required name="precio" id="precio" class="form-imput">
+        </div>
+        <div>
+          <label for="total" class="form-etiqueta">Total</label>
+          <input type="text" required name="total" id="total" class="form-imput">
+        </div>
+        <div>
+          <input type="submit" value="Agregar" class="btn-form">
+        </div>
+      </div>  
+    </form>
+    <div class="contenedor-tabla">
+      <table class="tabla ancho-clientes">
+        <thead>
+          <tr>
+            <th>ARTICULO</th>
+            <th>CANTIDAD</th>
+            <th>PRECIO</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="botones">
+        <input type="submit" value="Confirmar" class="btn-form">
+        <input type="submit" value="Eliminar" class="btn-form"
+      </div>
+    </div>
+  </div>  
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JADE Centro de Formacion Estetica</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap-icons.min.css">
+<link rel="stylesheet" href="bootstrap-icons-1.11.3/font/bootstrap-icons.min.css">
+
+<body>
+  <div class="sidebar">
+    <img src="assets/logo (1) (2).png" alt="Logo JADE">
+    <!--<h2>JADE Centro de Formacion Estetica.</h2>-->
+    <ul class="menu">
+      <li>CLIENTES
+        <ul class="submenu">
+          <li><a onclick="cargarContenido('clientes.html')">Nuevo</a></li>
+        </ul>
+      </li>
+      <li>PRODUCTOS
+        <ul class="submenu">
+          <li><a onclick="cargarContenido('productos.html')">Nuevo</a></li>
+          <li><a onclick="cargarContenido('Ingresos.html')">Ingresos</a></li>
+          <li>Ventas</li>
+        </ul>
+      </li>
+      <li>FLUJO
+        <ul class="submenu">
+          <li><a onclick="cargarContenido('flujo.html')">Flujo de caja</a></li>
+          <li><a onclick="cargarContenido('cuentaCorriente.html')">Cuenta Corriente</a></li>
+          <li>Costos</li>
+        </ul>
+      </li>
+      <li>VENTAS
+        <ul class="submenu">
+          <li><a onclick="cargarContenido('nuevaVenta.html')">Nueva Venta</a></li>
+          <li>Facturas</li>
+        </ul>
+      </li>
+      <li>STOCK
+        <ul class="submenu">
+          <li>Ver Stock</li>
+        </ul>
+      </li>
+      <li>CONFIGURACION
+        <ul class="submenu">
+          <!-- <li><a href="#" onclick="cargarContenido('productos.html')">Productos</a></li>-->
+          <li>Usuarios 
+            <ul class="submenu1">
+              <li><a onclick="cargarContenido('usuarios.html')">Nuevo</a></li>
+              <li>Editar</li>
+            </ul>
+          </li>
+          <li>Cuentas</li>
+          <li>Monedas</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <!--<div class="header">Dashboard</div>-->
+    <h1 class="header" style="display: inline;">JADE Centro de Formación Estética</h1>
+    
+    <div class="contenido" id="contenido">
+      <p style="text-align: center; font-size: 20px;">Bienvenido al sistema de gestión de <b>JADE Centro de Formación Estética</b>.</p>
+      <img src="assets/logo (1) (2).png" alt="Logo jadecentrodeformacionestetica" style="width: 500px; height: 500px; align-self: center;">
+    </div>
+
+<script>
+    function cargarContenido(pagina) {
+      fetch(pagina)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("contenido").innerHTML = data;
+          const fechaInput = document.getElementById("fechaVenta");
+            if (fechaInput) {
+                const hoy = new Date();
+                fechaInput.value = hoy.toISOString().split('T')[0];
+            }
+        })
+          
+        .catch(error => {
+          document.getElementById("contenido").innerHTML = "<p>Error al cargar el contenido</p>";
+        });
+}
+  </script>
+</body>
+</head>
+<!-- aqui comienza el footer-->
+<footer>
+  <div class="footer" container-fluid bg-success p-2">
+            <h5 class="p10px" style="text-align: center; padding: 0 5px 5px 5px;">Jade Centro de Formacion Estetica. 25 de Mayo 874 Villa María, Cordoba.</h5>
+
+            <div class="row text-center">
+                <div class="col">
+                    <a class="text-decoration-none text-white bg-transparent p-2 rounded d-inline-block text-uppercase" ><i class="bi bi-facebook me-2"></i>Facebook</a>
+                    <ul class="conten-alinig-lefth"> 
+                        <li style="list-style: none;"><a class="text-decoration-none text-white"   href="https://www.facebook.com/jadecentrodeformacionestetica"  target="_blank"  rel="noopener noreference nofollow">jadecentrodeformacionestetica</a></li>                       
+                    </ul>
+                </div>
+                <div class="col">
+                    <a class="text-decoration-none text-white bg-transparent p-2 rounded d-inline-block text-uppercase"><i class="bi bi-instagram me-2"></i>Instagram</a>
+                    <ul class="conten-alinig-lefth">
+                        <li style="list-style: none;"><a class="text-decoration-none text-white" href="https://www.instagram.com/jadecentrodeformacionestetica/" target="_blank" rel="noopener noreference nofollow">@jadecentrodeformacionestetica</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <a class="text-decoration-none text-white bg-transparent p-2 rounded d-inline-block text-uppercase">
+                        <i class="bi bi-envelope-fill me-2"></i>Contacto</a>
+                        <ul class="conten-alinig-lefth">
+                            <li style="list-style: none;"><a class="text-decoration-none text-white" href="mailto:jadecentrodeformacionestetica@gmail.com?subject=consulta%20desde%20Web">jadecentrodeformacionestetica@gmail.com</a></li>
+                        </ul>
+                </div>
+                <div class="col">
+                    <a class="text-decoration-none text-white bg-transparent p-2 rounded d-inline-block text-uppercase">
+                        <i class="bi bi-whatsapp me-2"></i>Whatsapp</a>
+                        <ul class="conten-alinig-lefth">
+                            <li style="list-style: none;"><a class="text-decoration-none text-white" href="tel:+5493534288075">353-4288075</a></li>
+                            <li style="list-style: none;"><a class="text-decoration-none text-white" href="tel:+5493534288075">3472-503448</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+</footer>
+<!--<footer>
+  <div class="footer">
+    <h5>Jade Centro de Formacion Estetica</h5>
+  </div>
+</footer>-->
+
+</html>
